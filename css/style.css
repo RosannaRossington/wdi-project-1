@@ -1,3 +1,27 @@
 h1 {
   color: blue;
 }
+
+.box {
+  list-style-type: none;
+  border: solid black 2px;
+  padding: 40px;
+  width: 100px;
+  height: 15px;
+  text-align: center;
+}
+
+#BlackBox {
+  color:black;
+}
+
+div {
+  display: inline-block; 
+}
+
+.buttons {
+  
+}
+
+
+
