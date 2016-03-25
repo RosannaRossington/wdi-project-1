@@ -16,14 +16,19 @@
           var colors = ["red","green","blue","pink","purple","yellow"]
           var colorSelection = colors[Math.floor(Math.random()*colors.length)];
           var textSelection = colors[Math.floor(Math.random()*colors.length)];
+
           var box = document.querySelector("li");
+
+          var button1 = document.getElementById("Button1");
+          var button2 = document.getElementById("Button2");
           
           //apply colorSelection as a font color to text in box
           //apply textSelection as the text in the box
+          //apply both as the buttons
           box.innerHTML = textSelection;
-          console.log (box)
-          
-          //apply colorSelection and textSelection to each button
+          button1.value = textSelection;
+          button2.value = colorSelection;
+
         
         }    
          
