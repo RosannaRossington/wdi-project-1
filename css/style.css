@@ -16,11 +16,17 @@ h1 {
 }
 
 div {
-  display: inline-block; 
+  list-style-type: none;
+  display: inline-block;
+  text-align: center;
+  width: 90px;
+  height: 90px;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
 }
 
 .buttons {
-  
+
 }
 
 

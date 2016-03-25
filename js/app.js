@@ -1,28 +1,61 @@
 //  preventDefault()
-document.addEventListener("DOMContentLoaded",play); 
+document.addEventListener("DOMContentLoaded",start); 
 
 var buttons = document.getElementsByClassName("buttons");
-var playerOne = [];
-var playerTwo = [];
 
 //go through each button and listen for a click
-//if clicked begin next round
-//if longer than 3 seconds begin next round
-//get the id of the element that fired the click
-  function play (){
+
+  function start (){
     for (var i=0;i<buttons.length;i++){
-      buttons[i].addEventListener("click", calculatePoints); 
+      buttons[i].addEventListener("click", play); 
     }
   }
 
-
-//update the box and buttons
-  function calculatePoints (){
-    var button = event.target.id;
-    console.log (button);
+//on click log score and start next round
+//get the id of the element that fired the click & compare to box id
+//if clicked begin next round
+//if longer than 3 seconds begin next round
+  
+  function nextRound(){
+    
   }
+
+  function play (button,box){
+    var button = event.target.value;
+    var box = document.querySelector("li").id;
+    var playerScore = 0;
+    
+    console.log (button);
+    console.log (box);
+  
+    if (button === box) {
+      playerScore++;
+        nextRound();
+    }
+    else if (button !== box) {
+      playerScore;
+       nextRound();
+    }
+    console.log (playerScore);
+  }
+
+//think twitter append - update html and then slide off
+  // function nextRound (){
+  //    var button1Update =
+  //    var button2Update = 
+  //    var boxUpdate =
+  //    var game = <section class="box">
+      //   <li id="black">+White+</li>    
+      //   </section>
+      //   <section class="buttons">
+      //   <div><input type="button" value="WHITE" id="button1"></div>
+      //   <div><input type="button" value="BLACK"id="button2"></div>
+      //   </section>
+  // }
 
 // //take final scores and return who wins  
 //   function getWinner(playerOne,playerTwo){
-  
+  // var score = document.querySelector("p");
+  // score.innerHTML = "Player 1 scores " + playerScore + "."
+  // };
 //   }
