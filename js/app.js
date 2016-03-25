@@ -9,7 +9,6 @@
         }
 
 //play on loop - when button clicked OR if 3 seconds up
-//
         function play (){
           var colors = ["red","green","blue","pink","purple","yellow"]
           var colorSelection = colors[Math.floor(Math.random()*colors.length)];
@@ -24,11 +23,10 @@
           //apply textSelection as the text in the box          
           box.innerHTML = textSelection;
           box.style.color = colorSelection;
+          console.log (box.style.color)
 
           //apply both as the buttons but RANDOMLY
-        
-
-          // //buttons.value = textSelection || colorSelection;
+          //buttons can't be the same!
         function buttonValue() {
               var randomNumber = Math.random();
               if (randomNumber < 0.5) {
@@ -44,7 +42,23 @@
               button2.value = textSelection;
               button1.value = colorSelection;
             }
-          
+   //winning combo is value of button clicked === box.style.color           
+            function keepScore (){
+              var player1Score = 0;
+              var player2Score = 0;
+             
+              if (event.target.value === box.style.color) {
+                  player1Score++;
+                
+              }
+              else if (event.target.value !== box.style.color) {
+                  player1Score;
+                  
+                }
+              console.log (player1Score);
+             }  
+             keepScore()
+        }     
           //Jquery - play Function
           //                       var $box = $("li");
 
@@ -66,26 +80,10 @@
           //     ($(this).slideUp("class"));
           //   });
           // });
-
-        }
         
-        // //winning combo is box.style.color === button2.value
+ 
         
-        //function keepScore (){
-        //   var player1Score = 0;
-        //   var player2Score = 0;
-          
-        //   if (button === box) {
-        //     playerScore++;
-        //   nextRound();
-        // //   //   }
-        // //   //   else if (button !== box) {
-        // //   //     playerScore;
-        // //   //      nextRound();
-        // //   //   }
-        // //   //   console.log (playerScore);
-        // //   // }
-        // }  
+       
 
 
 
