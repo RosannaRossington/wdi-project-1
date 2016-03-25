@@ -26,10 +26,25 @@
           //apply textSelection as the text in the box
           //apply both as the buttons
           box.innerHTML = textSelection;
+          box.style.color = colorSelection;
+
           button1.value = textSelection;
           button2.value = colorSelection;
 
-        
+// //Jquery
+//                       var $box = $("li");
+
+//                       var $button1 = $("#Button1");
+//                       var $button2 = $("#Button2");
+                      
+//                       //apply colorSelection as a font color to text in box
+//                       //apply textSelection as the text in the box
+//                       //apply both as the buttons
+//                       $box.innerHTML = textSelection;
+                        //$box.css.color.colorSelection;
+                        
+//                       $button1.value = textSelection;
+//                       $button2.value = colorSelection;
         }    
          
          
