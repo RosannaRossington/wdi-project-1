@@ -4,20 +4,21 @@
         var start = document.getElementById("Start");
         var game = document.getElementById("game");
 
-
+//when start is clicked the first round will begin and remain on the screen for 3 seconds
       function start(){
         Start.addEventListener("click", createRound);
          $(function(){
             $("#Start").on("click",function() {
               ($(this).remove("#Start"));
-              setInterval(createRound,3000);
-                
+              setInterval(createRound,3000);  
           });
         });
       } 
-
-
+//each time a button is clicked the score will be updated
       function createRound (){
+        for (var i=0;i<buttons.length;i++){
+         buttons[i].addEventListener("click",keepScore);
+        }
 
         var colors = ["red","green","blue","pink","purple","yellow"]
         var colorSelection = colors[Math.floor(Math.random()*colors.length)];
@@ -46,30 +47,19 @@
                       button2.value = box.innerHTML;
                       button1.value = box.style.color;
                     } 
-              
-              play()       
+
+              function keepScore() {
+                var playerCounter = document.getElementById("playerScore");
+
+                  if ((event.target).value === box.style.color) 
+                            {playerCounter.innerHTML++
+                  }else if ((event.target).value !== box.style.color) {
+                          playerCounter.innerHTML}    
+              }
+          
       } 
  
-            function play(){
-              var player1Score = 0;
-
-                for (var i=0;i<buttons.length;i++){
-                 buttons[i].addEventListener("click",createRound);
-               console.log (player1Score +=1)
-             }
-                //if (event.target.value === box.style.color) 
-                //           console.log (player1Score +=1)
-                //           createRound()
-                //       }
-                // else if (event.target.value !== box.style.color) {
-                //         console.log (player1Score)
-                //         createRound()
-                //      }
-                // else {timeUp()}     
-                // } 
-
-            }
-
+            // loop through for 10 and then clearInterval()
   
         
         
