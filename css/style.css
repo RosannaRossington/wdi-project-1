@@ -26,3 +26,7 @@ div {
   font-family: "Courier New", Courier, monospace;
   text-align: center;
 }
+
+#game {
+  border: solid black 5px;
+}

@@ -2,6 +2,7 @@
 
         var buttons = document.getElementsByClassName("buttons");
         var start = document.getElementById("Start");
+        var game = document.getElementById("game");
 
 
       function start(){
@@ -42,75 +43,39 @@
                       button2.value = box.innerHTML;
                       button1.value = box.style.color;
                     } 
+                    
+          //Once we have a triggered an event, inside the callback the value of this will be the DOM element that fired the event.
+          //if there has not been a click event on #buttons
+          //then hide buttons
+
+               $(document).ready(function()
+                {
+                  $("#game").mouseup(function(e)
+                   {
+                    var subject = $("#buttons");
+
+                    if (e.target.id != subject.attr('id'))
+                      {
+                          subject.fadeOut();
+                      }
+                   });
+                });
       } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // if (event.target.value === box.style.color) {
-        //           player1Score +=1
-        //           console.log (player1Score)
-        //          }
-        // else if (event.target.value !== box.style.color) {
-        //            player1Score
-        //            console.log (player1Score)
-                        
-        //}       
-            
-      
-        
-
-         //if button not pressed after 3 seconds        
-                 // $(function (){
-                 // $('.game').on("click",function() {
-                 // ($(this).slideUp("game"));
-                 // });
-                 // });  
-                 // timeUp()   
+      // //instead of click it should be on no click
+      // $(function timeUp(){
+      //   if ($('#buttons').click != (this).target.id )
+      //   $('#buttons').click on("click", function() {
+      //      $(this).hide();
+      //    });
+      // });
+      // $(function timeUp()
+      // {
+      //      $('#game').hide([300],[complete]);
+         
+      // });
+ 
                
-        //CLICK SLIDE UP - nothing back to bottom.
-               // $(function(){
-               //   $('li').on("click",function() {
-               //     ($(this).slideUp("class"));
-               //   });
-               // });
+     
 
         //play on loop up to playerScore 5 - when button clicked OR if 3 seconds up
         //winning combo is value of button clicked === box.style.color  
@@ -119,14 +84,21 @@
               
               // function keepScore(){
               //   var player1Score = 0;
-              //     while (player1Score <= 5) {
+              //     // while (player1Score <= 5) {
               //        if (event.target.value === box.style.color) {
               //           player1Score +=1
               //          }
               //        else if (event.target.value !== box.style.color) {
               //            player1Score
               //         }
-              //       } 
+              //         //not clicked after x seconds 
+              //         else if (event.target.value === null) {
+              //             $(function(){
+              //               $('#start').on("click", function() {
+              //               $('#game').toggle();
+              //               });
+              //             });
+              //         } 
               // }      
 
 
