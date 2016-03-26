@@ -3,11 +3,13 @@
 <head>
   <title>Project 1</title>
   <link rel="stylesheet" type="text/css" href="./css/style.css">
+<!--   <link rel="stylesheet" href="animate.min.css"> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript" src="./js/app.js"></script>
 </head>
 <body>
-  <h1>What Colour is the text?</h1>
+  <h1 class="animated infinite bounce">WHAT COLOUR IS THE TEXT?</h1>
+  <img src="./css/rainbow.html">
   <div><input type="button" value="START" id="Start"></div>
     <section id="game">
       <section class="box">
@@ -18,10 +20,12 @@
         <div><input type="button" id="Button2" class="button"></div>
       </section>
     </section>  
-      <p></p>
+    
 
       <section class="score">
-        <li id="playerScore">0</li> 
+        <li id="playerScore">0 </li>
+        <li id="roundsPlayed">0 </li>
+        <p></p> 
       </section>
 </body>
 </html>

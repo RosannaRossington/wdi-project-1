@@ -1,5 +1,20 @@
+body{
+  background-color: white;
+  }
+
 h1 {
-  color: blue;
+  color: black;
+  font-family: "Calibri,Century Gothic, Candara;
+  font-size: 70px;
+}
+
+section #game {
+  border: solid Snow 2px;
+  border-radius: 10px;
+  margin: 0 auto;
+  width: 500px;
+  height: 350px;
+  background-color: PeachPuff;
 }
 
 .box {
