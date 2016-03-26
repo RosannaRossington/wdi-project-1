@@ -47,12 +47,13 @@
           //Once we have a triggered an event, inside the callback the value of this will be the DOM element that fired the event.
           //if there has not been a click event on #buttons
           //then hide buttons
+          //when button is clicked game is removed
 
                $(document).ready(function()
                 {
-                  $("#game").mouseup(function(e)
+                  $("#buttons").mouseup(function(e)
                    {
-                    var subject = $("#buttons");
+                    var subject = $("#game");
 
                     if (e.target.id != subject.attr('id'))
                       {
@@ -104,10 +105,34 @@
 
 
 
+//when button is clicked game is removed
+              // $(document).ready(function()
+              //  {
+              //    $("#buttons").mouseup(function(e)
+              //     {
+              //      var subject = $("#game");
+
+              //      if (e.target.id != subject.attr('id'))
+              //        {
+              //            subject.fadeOut();
+              //        }
+              //     });
+              //  });
 
 
+//when game is clicked buttons are removed
+                   // $(document).ready(function()
+                   //  {
+                   //    $("#game").mouseup(function(e)
+                   //     {
+                   //      var subject = $("#buttons");
 
-
+                   //      if (e.target.id != subject.attr('id'))
+                   //        {
+                   //            subject.fadeOut();
+                   //        }
+                   //     });
+                   //  });
 
 
 
