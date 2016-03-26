@@ -6,7 +6,11 @@
 
 
       function start(){
-//  start.addEventListener("click", play);} 
+        Start.addEventListener("click", createRound);
+      alert ("let's begin!")
+    } 
+
+      function play(){
           for (var i=0;i<buttons.length;i++){
               buttons[i].addEventListener("click", createRound); 
           } 
@@ -47,11 +51,13 @@
           //Once we have a triggered an event, inside the callback the value of this will be the DOM element that fired the event.
           //if there has not been a click event on #buttons
           //then hide buttons
-          //when button is clicked game is removed
+          //when button or game is clicked game is removed
+
+          //only want to do this if not clicked
 
                $(document).ready(function()
                 {
-                  $("#buttons").mouseup(function(e)
+                  $("#buttons").click(function(e)
                    {
                     var subject = $("#game");
 
