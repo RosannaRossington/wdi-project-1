@@ -7,12 +7,14 @@
 
       function start(){
         Start.addEventListener("click", createRound);
-       $(function(){
-          $("#Start").on("click",function() {
-            ($(this).remove("#Start"));
+         $(function(){
+            $("#Start").on("click",function() {
+              ($(this).remove("#Start"));
+              setInterval(function(){ 
+                ($("#game").remove("#game")); }, 5000); 
+          });
         });
-      });
-    } 
+      } 
 
 
       function createRound (){
@@ -24,10 +26,9 @@
         var button1 = document.getElementById("Button1");
         var button2 = document.getElementById("Button2");
 //apply colorSelection as a font color to text in box - apply textSelection as the text in the box          
-              
-          box.innerHTML = textSelection;
-          box.style.color = colorSelection;
-              
+             
+                  box.innerHTML = textSelection;
+                  box.style.color = colorSelection;
 
 //apply both as the buttons but RANDOMLY - buttons can't be the same!
               function createButtons() {
@@ -47,71 +48,33 @@
                     } 
               
               play()       
-
-
       } 
  
+ // PLAY FUNCTION 
+ // when button is clicked log a score - start new round
+ // if not clicked on button in 3 seconds start new round
+
             function play(){
+              var player1Score = 0;
+
                 for (var i=0;i<buttons.length;i++){
-                    buttons[i].addEventListener("click",createRound);
-                } 
-            }   
-     // function keepScore(){
-     //   var player1Score = 0;
-     //     // while (player1Score <= 5) {
-     //        if (event.target.value === box.style.color) {
-     //           console.log (player1Score +=1)
-     //          }
-     //        else if (event.target.value !== box.style.color) {
-     //            console.log (player1Score)
-     //         }
-     // } 
+                 buttons[i].addEventListener("click",createRound);
+               console.log (player1Score +=1)
+             }
+                //if (event.target.value === box.style.color) 
+                //           console.log (player1Score +=1)
+                //           createRound()
+                //       }
+                // else if (event.target.value !== box.style.color) {
+                //         console.log (player1Score)
+                //         createRound()
+                //      }
+                // else {timeUp()}     
+                // } 
 
-        //play on loop up to playerScore 5 - when button clicked OR if 3 seconds up
-        //winning combo is value of button clicked === box.style.color  
-        //log point1 and play again
-        //play 5 times   
-              
-              
-              //         //not clicked after x seconds 
-              //         else if (event.target.value === null) {
-              //             $(function(){
-              //               $('#start').on("click", function() {
-              //               $('#game').toggle();
-              //               });
-              //             });
-              //         } 
-              // } 
+            }
 
-              //After 5     
-              // $(document).ready(function()
-              //  {
-              //    $("#buttons").click(function(e)
-              //     {
-              //      var subject = $("#game");
-
-              //      if (e.target.id != subject.attr('id'))
-              //        {
-              //            subject.fadeOut();
-              //        }
-              //     });
-              //  });
-
-          //Jquery - play Function
-          //                       var $box = $("li");
-
-          //                       var $button1 = $("#Button1");
-          //                       var $button2 = $("#Button2");
-                                
-          //                       //apply colorSelection as a font color to text in box
-          //                       //apply textSelection as the text in the box
-          //                       //apply both as the buttons
-          //                       $box.innerHTML = textSelection;
-                                  //$box.css.color.colorSelection;
-
-          //                       $button1.value = textSelection;
-          //                       $button2.value = colorSelection;   
-
+  
         
         
  
