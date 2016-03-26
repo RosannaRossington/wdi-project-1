@@ -10,8 +10,8 @@
          $(function(){
             $("#Start").on("click",function() {
               ($(this).remove("#Start"));
-              setInterval(function(){ 
-                ($("#game").remove("#game")); }, 5000); 
+              setInterval(createRound,3000);
+                
           });
         });
       } 
@@ -50,10 +50,6 @@
               play()       
       } 
  
- // PLAY FUNCTION 
- // when button is clicked log a score - start new round
- // if not clicked on button in 3 seconds start new round
-
             function play(){
               var player1Score = 0;
 
