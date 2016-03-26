@@ -7,16 +7,20 @@
 
       function start(){
         Start.addEventListener("click", createRound);
-      alert ("let's begin!")
+       $(function(){
+          $("#Start").on("click",function() {
+            ($(this).remove("#Start"));
+        });
+      });
     } 
 
       function play(){
           for (var i=0;i<buttons.length;i++){
-              buttons[i].addEventListener("click", createRound); 
+              buttons[i].addEventListener("click", createRound);
           } 
       }
 
-      function createRound (){
+      function createRound (play){
 
                 var colors = ["red","green","blue","pink","purple","yellow"]
                 var colorSelection = colors[Math.floor(Math.random()*colors.length)];
