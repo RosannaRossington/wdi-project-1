@@ -11,8 +11,9 @@
       function start(){
         Start.addEventListener("click", createRound);
          $(function(){
-            $("#Start").on("click",function() {
-              ($(this).remove("#Start"));
+            $("#Start").click(function() {
+              ($(this).hide());
+              ($("#welcome").slideUp());
               ($("#game").show());
               setInterval(createRound,3000);  
           });
