@@ -25,6 +25,7 @@ function selectLevel () {
   var levelOne = document.getElementById("LevelOne");
   var levelTwo = document.getElementById("LevelTwo");
   var levelThree = document.getElementById("LevelThree");
+  var levelFour = document.getElementById("LevelFour");
   
     LevelOne.addEventListener("click", setLevel);
       $(function(){
@@ -49,21 +50,28 @@ function selectLevel () {
 function setLevel(){
     if (((this).id) === ("LevelOne")) {
      $(function(){
-        $("#score").show();
+      $("#score").hide();
        $("#game").show();
          setInterval(createRound,2000); 
        }); 
     } else if (((this).id) === ("LevelTwo")) {
       $(function(){
+        $("#score").hide();
         $("#game").show();
           setInterval(createRound,1000); 
         });
     } else if (((this).id) === ("LevelThree")) {
       $(function(){
+        $("#score").hide();
         $("#game").show();
           setInterval(createRound,100); 
         });
-    }
+    } else if (((this).id) === ("LevelFour")) {
+      $(function(){
+        $("#score").hide();
+        $("#game").show();
+          setInterval(createRound,1000); 
+        });
 }    
 
 function createRound (){  
@@ -76,9 +84,10 @@ function createRound (){
   var button1 = document.getElementById("Button1");
   var button2 = document.getElementById("Button2");
 //apply colorSelection as a font color to text in box - apply textSelection as the text in the box          
-         
-  box.innerHTML = textSelection;
-  box.style.color = colorSelection;
+  
+    if (((this).id) === ("LevelFour"))     
+        box.innerHTML = textSelection;
+        box.style.color = colorSelection;
 
 //apply both as the buttons but RANDOMLY - buttons can't be the same!
   for (var i=0;i<buttons.length;i++){

@@ -39,10 +39,71 @@ img {
   display:block;
 }
 
-#levelSelector {
- 
+#LevelOne {
+  background-color: #7E7E7E;
+  color: white;
+  width: 100px;
+  height: 100px;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  text-align: center;
+  border: solid black 2px;
+  border-color: black;
+  display: inline-block;
+  float:left;
+  margin: 15px;
 }
 
+#LevelTwo {
+  background-color: #292626;
+  color: white;
+  width: 100px;
+  height: 100px;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  text-align: center;
+  border: solid black 2px;
+  border-color: black;
+  display: inline-block;
+  float:left;
+  margin: 15px;
+}
+
+#LevelThree {
+  background-color: black;
+  color: white;
+  width: 100px;
+  height: 100px;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  text-align: center;
+  border: solid black 2px;
+  border-color: black;
+  display: inline-block;
+  float:left;
+  margin: 15px;
+}
+
+#LevelOne:hover {
+  background-color: #0670D0;
+  color: white;
+}
+
+#LevelTwo:hover {
+  background-color: #E13D57;
+  color: white;
+}
+
+#LevelThree:hover {
+  background-color: #80D43A;
+  color: white;
+}
 section  {
   padding: 100px;
 
@@ -66,7 +127,7 @@ section #game  {
   width: 200px;
   height: 75px;
   text-align: center;
-  margin: 0 auto;
+  
   display:block;
 }
 
@@ -77,18 +138,19 @@ section #game  {
   background-color: white;
   border: solid 3px black;
   font-family: 'Arial Narrow', Arial, sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   font-style: normal;
   font-variant: normal;
   text-align: center;
-  display: block;
-  margin: 0 auto;
+  display: inline-block;
+  float: left;
+  margin: 15px;
   text-align: center;
 }
 
-.buttons{
-  display: block;
-  margin: 0px;
+.buttons {
+  padding: 30px 190px 100px 190px;
+  margin: 0 auto;
 }
 
 div #buttons{
