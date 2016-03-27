@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded",start); 
 
-
   var buttons = document.getElementsByClassName("buttons");
   // var start = document.getElementById("Start");
   var game = document.getElementById("game");
@@ -78,7 +77,8 @@ function setLevel(){
         $("#game").show();
           setInterval(createRound,1000);
         });
-}    
+      } 
+}         
 
 function createRound (){  
   var colors = ["red","green","blue","pink","purple","yellow"]
@@ -86,16 +86,22 @@ function createRound (){
   var textSelection = colors[Math.floor(Math.random()*colors.length)];
 
   var boxBackgroundColor = ["orange","Blanched Almond"];
-  var boxBackgroundColorSelection = boxBackgroundColor[Math.floor(Math.random()*colors.length)];
+  var boxBackgroundColorSelection = boxBackgroundColor[Math.floor(Math.random()*boxBackgroundColor.length)];
 
   var box = document.querySelector("li");
-  
+  // var $box = 
   var button1 = document.getElementById("Button1");
   var button2 = document.getElementById("Button2");
 //apply colorSelection as a font color to text in box - apply textSelection as the text in the box          
   
-  // console.log(this)
-  //$( this ).css( "background-color" );
+  
+  // if ($(this) === ("LevelFour"))  {
+  // //          $(box).innerHTML = textSelection;
+  // //          $(box).style.color = colorSelection;
+  // //          $(box).style.css("background-color") = boxBackgroundColorSelection;  
+  // //       } else { box.innerHTML = textSelection;
+  // //                box.style.color = colorSelection; 
+  // }
 
       box.innerHTML = textSelection;
       box.style.color = colorSelection;       
@@ -103,31 +109,31 @@ function createRound (){
   for (var i=0;i<buttons.length;i++){
    buttons[i].addEventListener("click",keepScore);
    }
-
-       if (createButtons() === "button1")  {
-           button1.value = box.innerHTML;
-           button2.value = box.style.color;
-        } if ((button1.value) === (button2.value)) {
-          createButtons()
-         }
-       else if (true) {} {(createButtons() === "button2")
-           button2.value = box.innerHTML;
-           button1.value = box.style.color;
-         } if ((button1.value) === (button2.value)) {
-          createButtons()
-         }
-       }
+//working button but sometimes the same
+       // if (createButtons() === "button1")  {
+       //     button1.value = box.innerHTML;
+       //     button2.value = box.style.color;
+       //  } if ((button1.value) === (button2.value)) {
+       //    createButtons()
+       //   }
+       // else if (createButtons() === "button2") {
+       //     button2.value = box.innerHTML;
+       //     button1.value = box.style.color;
+       //   } if ((button1.value) === (button2.value)) {
+       //    createButtons()
+       //   }
+       // }
 
 //working button but sometimes the same
-    // if (createButtons() === "button1")  {
-    //     button1.value = box.innerHTML;
-    //     button2.value = box.style.color;
-    //   } else {(createButtons() === "button2")
-    //     button2.value = box.innerHTML;
-    //     button1.value = box.style.color;
-    //   } 
-    // }
+    if (createButtons() === "button1")  {
+        button1.value = box.innerHTML;
+        button2.value = box.style.color;
+      } else {(createButtons() === "button2")
+        button2.value = box.innerHTML;
+        button1.value = box.style.color;
+      } 
 }
+
 
 function createButtons() {
   var randomNumber = Math.random();
@@ -150,36 +156,38 @@ function keepScore() {
   if (roundCounter < 10){ 
     if ((event.target).value === box.style.color){
         playerCounter++;
+        roundCounter++;
     }
     roundCounter++;    
     } else if ((event.target).value !== box.style.color){
       roundCounter++;
       playerCounter;
-  } else { endGame()
-    console.log ("10 games")
-    console.log(playerCounter,roundCounter)  
-  } 
+  } else { endGame() 
+    } 
 
     roundCounterElement.innerHTML = roundCounter;
     playerCounterElement.innerHTML = playerCounter;
-
-}        
-
-    
-  function endGame() {
-    console.log ("Game Over")
-    $(function(){
-      $(function(){
-        ($("#score").show());
-        ($("#game").fadeOut());
-        clearInterval();
-      })
-    })
-  }
-   
   
-  // 
-        //roundUp.innerHTML = "You played"+roundCounter + "scored"+playerCounter+"."
+  function endGame() {
+    $("#game").hide();
+        clearInterval();
+
+    var gameOver = document.querySelector("p");
+
+    $(function(){
+      $("#score").show();
+      $("#score").animate({left: '250px'});
+      });
+
+    gameOver.innerHTML = "You played "+ roundCounter + " scored "+ playerCounter +" ."
+
+console.log (gameOver)
+console.log (playerCounter,roundCounter)       
+  }
+}  
+
+
+        
         
  
         
