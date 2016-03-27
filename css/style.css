@@ -4,33 +4,32 @@ body{
   }
 
 h1 {
-    font-family: 'Arial Narrow', Arial, sans-serif;
-    font-size: 24px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 500;
-    line-height: 26.4px;
-    margin: 0 auto;
-    display:block;
-    margin: 30px 0px 0px 0px;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+  margin: 0 auto;
+  display:block;
+  margin: 30px 0px 0px 0px;
 }
 
 #welcome {
-
   margin: 100px 100px 100px 100px;
 }
-img {
-  
+
+img { 
   position: relative;
-  float: right;
-  display: block;
+  display: inline-block;
+  float:right;
 }
 
 #Start {
   width: 100px;
   height: 30px;
   background-color: white;
-  border: solid 5px black;
+  border: solid 3px black;
   font-family: 'Arial Narrow', Arial, sans-serif;
   font-size: 12px;
   font-style: normal;
@@ -41,44 +40,59 @@ img {
 
 }
 
-section {
+section  {
   padding: 100px;
 
 }
-section #game {
-  border: solid Snow 2px;
-  border-radius: 10px;
-  margin: 0 auto;
-  width: 500px;
-  height: 350px;
-  background-color: PeachPuff;
+section #game  {
+  padding: 20px;
+  width: 100px;
+  height: 100px;
+  border: solid 3px black;
 }
 
 .box {
+  font-family: 'Arial Narrow', Arial, sans-serif;
   list-style-type: none;
-  border: solid black 2px;
-  padding: 40px;
+  border: solid 3px black;
+  font-size: 50px;
+  font-style: normal;
+  font-variant: normal;
+  text-align: center;
+  padding: 30px;
+  width: 200px;
+  height: 75px;
+  text-align: center;
+  margin: 0 auto;
+  display:block;
+}
+
+.button {
   width: 100px;
-  height: 15px;
+  height: 50px;
+  padding: 5px;
+  background-color: white;
+  border: solid 3px black;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
   text-align: center;
-  color: ;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.buttons {
-
+.buttons{
+  display: block;
+  margin: 0px;
 }
 
-
-div {
-  list-style-type: none;
+div #buttons{
+  margin: 0 auto;
   display: inline-block;
-  text-align: center;
-  width: 90px;
-  height: 90px;
-  font-family: "Courier New", Courier, monospace;
-  text-align: center;
+  width: 250px;
 }
 
-#game {
-  border: solid black 5px;
-}
+
+
