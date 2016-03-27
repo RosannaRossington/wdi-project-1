@@ -1,30 +1,72 @@
         document.addEventListener("DOMContentLoaded",start); 
         $(function(){
-                    $("#game").hide();});
+                    $("#game").hide();
+                    $("#score").hide();
+                    $("#levelSelector").hide();
+        });
 
         var buttons = document.getElementsByClassName("buttons");
         var start = document.getElementById("Start");
         var game = document.getElementById("game");
-       
-
-//when start is clicked the first round will begin and remain on the screen for 3 seconds
+        var levelSelector = document.getElementById("levelSelector");
+        
       function start(){
-        Start.addEventListener("click", createRound);
+        Start.addEventListener("click", selectLevel);
          $(function(){
             $("#Start").click(function() {
-              ($(this).hide());
-              ($("#welcome").slideUp());
-              ($("#game").show());
-              setInterval(createRound,3000);  
+              $(this).hide();
+              $("#welcome").slideUp();
+              $("#levelSelector").show();
+              $("#game").hide();
           });
         });
       } 
+
+      function selectLevel () {
+        var levelOne = document.getElementById("LevelOne");
+        var levelTwo = document.getElementById("LevelTwo");
+        var levelThree = document.getElementById("LevelThree");
+        
+      LevelOne.addEventListener("click", createRound);
+        $(function(){
+          $("#LevelOne").click(function(){
+            $("#levelSelector").hide();
+            $("#game").show();
+            setInterval(createRound,3000); 
+          }); 
+        });
+      LevelTwo.addEventListener("click", createRound);
+        $(function(){
+          $("#LevelTwo").click(function(){
+            $("#levelSelector").hide();
+            $("#game").show();
+            setInterval(createRound,3000); 
+          });  
+        });
+      LevelThree.addEventListener("click", createRound);
+        $(function(){
+          $("#LevelThree").click(function(){
+            $("#levelSelector").hide();
+            $("#game").show();
+            setInterval(createRound,3000);  
+          });  
+        });
+      }
+
 //each time a button is clicked the score will be updated
       function createRound (){
+        // $(function(){
+        //   $("#buttons").click(function(){
+        //   ($("#Button1").animate({right: '250px'}));
+        //   ($("#Button2").animate({left: '250px'}));
+        //   ($(".box").slideUp());
+        //   })
+        // })  
         for (var i=0;i<buttons.length;i++){
-         buttons[i].addEventListener("click",keepScore);{
+         buttons[i].addEventListener("click",keepScore());{
          }
         }
+       
       
         var colors = ["red","green","blue","pink","purple","yellow"]
         var colorSelection = colors[Math.floor(Math.random()*colors.length)];
@@ -53,42 +95,46 @@
                       button2.value = box.innerHTML;
                       button1.value = box.style.color;
                     } 
-
+      
+              
               function keepScore() {
                 var roundCounter = document.getElementById("roundsPlayed");
                 var playerCounter = document.getElementById("playerScore");
-               
-                var roundUp = document.querySelector("p")
+                var roundUp = document.querySelector("p");
 
+                while (roundCounter ===10) {
                   if ((event.target).value === box.style.color){
                       playerCounter.innerHTML++;
                       roundCounter.innerHTML++;
+                      console.log (roundCounter,playerCounter)
                   }else if ((event.target).value !== box.style.color) {
                       playerCounter.innerHTML;
-                      roundCounter.innerHTML++}   
+                      roundCounter.innerHTML++;
+                    console.log (roundCounter,playerCounter)}  
+                } 
               }
 
-
+      }        
           
-      } 
+       
  
             // loop through for 10 and then clearInterval()
   
-  //when playerCounter === 5 the game will disappear
+  //when playerCounter === 5 the game will disappear and ($(".score").show());
+  // function endGame() {
+  // while (roundCounter ===10) {
+  //     $(document).finished(function()
+  //        { $("#buttons").click(function(e)
+  //           {
+  //            var subject = $("#game");
+  //            if (e.target.id != subject.attr('id'))
+  //              {subject.fadeOut();}
+  //           });
+  //        });
+  //   }
+  //  } 
 
-  // $(document).ready(function()
-  //  {
-  //    $("#buttons").click(function(e)
-  //     {
-  //      var subject = $("#game");
-
-  //      if (e.target.id != subject.attr('id'))
-  //        {
-  //            subject.fadeOut();
-  //        }
-  //     });
-  //  });
-
+  // 
         //roundUp.innerHTML = "You played"+roundCounter + "scored"+playerCounter+"."
         
  
