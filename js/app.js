@@ -1,78 +1,70 @@
 document.addEventListener("DOMContentLoaded",start); 
 
 
-var buttons = document.getElementsByClassName("buttons");
-// var start = document.getElementById("Start");
-var game = document.getElementById("game");
-        // var levelSelector = document.getElementById("levelSelector");
+  var buttons = document.getElementsByClassName("buttons");
+  // var start = document.getElementById("Start");
+  var game = document.getElementById("game");
+  var levelSelector = document.getElementById("levelSelector");
      
 function start(){
     $("#game").hide();
-    // $("#score").hide();
-    // $("#levelSelector").hide();
+    $("#score").hide();
+    $("#levelSelector").hide();
     
-    Start.addEventListener("click", createRound);
+    Start.addEventListener("click", selectLevel);
     $(function(){
       $("#Start").click(function() {
         ($(this).hide());
         ($("#welcome").slideUp());
-        // $("#levelSelector").show();
-              
-        ($("#game").show());
-        setInterval(createRound,3000);
-          
-        for (var i=0;i<buttons.length;i++){
-         buttons[i].addEventListener("click",keepScore);
-         }
+        $("#levelSelector").show();
       });
     });
 } 
 
-      // function selectLevel () {
-      //   var levelOne = document.getElementById("LevelOne");
-      //   var levelTwo = document.getElementById("LevelTwo");
-      //   var levelThree = document.getElementById("LevelThree");
-        
-      // LevelOne.addEventListener("click", setLevel);
-      //   $(function(){
-      //     $("#LevelOne").click(function(){
-      //       $("#levelSelector").hide();
-      //     }); 
-      //   });
-      // LevelTwo.addEventListener("click", setLevel);
-      //   $(function(){
-      //     $("#LevelTwo").click(function(){
-      //       $("#levelSelector").hide();
-      //     });  
-      //   });
-      // LevelThree.addEventListener("click", setLevel);
-      //   $(function(){
-      //     $("#LevelThree").click(function(){
-      //       $("#levelSelector").hide(); 
-      //     });  
-      //   });
-      // }
+function selectLevel () {
+  var levelOne = document.getElementById("LevelOne");
+  var levelTwo = document.getElementById("LevelTwo");
+  var levelThree = document.getElementById("LevelThree");
+  
+    LevelOne.addEventListener("click", setLevel);
+      $(function(){
+        $("#LevelOne").click(function(){
+          $("#levelSelector").hide();
+        }); 
+      });
+    LevelTwo.addEventListener("click", setLevel);
+      $(function(){
+        $("#LevelTwo").click(function(){
+          $("#levelSelector").hide();
+        });  
+      });
+    LevelThree.addEventListener("click", setLevel);
+      $(function(){
+        $("#LevelThree").click(function(){
+          $("#levelSelector").hide(); 
+        });  
+      });
+}
 
-
-      // function setLevel(){
-      //     if (((this).id) === ("LevelOne")) {
-      //      $(function(){
-      //         $("#score").show();
-      //        $("#game").show();
-      //          setInterval(createRound,2000); 
-      //        }); 
-      //     } else if (((this).id) === ("LevelTwo")) {
-      //       $(function(){
-      //         $("#game").show();
-      //           setInterval(createRound,1000); 
-      //         });
-      //     } else if (((this).id) === ("LevelThree")) {
-      //       $(function(){
-      //         $("#game").show();
-      //           setInterval(createRound,100); 
-      //         });
-      //     }
-      // }    
+function setLevel(){
+    if (((this).id) === ("LevelOne")) {
+     $(function(){
+        $("#score").show();
+       $("#game").show();
+         setInterval(createRound,2000); 
+       }); 
+    } else if (((this).id) === ("LevelTwo")) {
+      $(function(){
+        $("#game").show();
+          setInterval(createRound,1000); 
+        });
+    } else if (((this).id) === ("LevelThree")) {
+      $(function(){
+        $("#game").show();
+          setInterval(createRound,100); 
+        });
+    }
+}    
 
 function createRound (){  
   var colors = ["red","green","blue","pink","purple","yellow"]
@@ -89,6 +81,9 @@ function createRound (){
   box.style.color = colorSelection;
 
 //apply both as the buttons but RANDOMLY - buttons can't be the same!
+  for (var i=0;i<buttons.length;i++){
+   buttons[i].addEventListener("click",keepScore);
+   }
 
     if (createButtons() === "button1")  {
         button1.value = box.innerHTML;
@@ -116,17 +111,18 @@ function keepScore() {
   var playerCounter = parseInt(playerCounterElement.innerHTML);
   var box = document.querySelector("li");
 
-               
+  //log a game that has not been clicked             
   if (roundCounter < 10){ 
     if ((event.target).value === box.style.color){
         playerCounter++;
-        console.log(playerCounter,roundCounter)
-      } 
+    }
+    roundCounter++;    
+    } else if ((event.target).value !== box.style.color){
       roundCounter++;
-  } else if ((event.target).value !== box.style.color){
-      roundCounter.innerHTML++;
-  } else {
-      console.log ("Game Over")
+      playerCounter;
+  } else { endGame()
+    console.log ("10 games")
+    console.log(playerCounter,roundCounter)  
   } 
 
     roundCounterElement.innerHTML = roundCounter;
@@ -134,24 +130,19 @@ function keepScore() {
 
 }        
 
-       
- 
-            // loop through for 10 and then clearInterval()
+    
+  function endGame() {
+    console.log ("Game Over")
+    $(function(){
+      $(function(){
+        ($("#score").show());
+        ($("#game").fadeOut());
+        clearInterval();
+      })
+    })
+  }
+   
   
-  //when playerCounter === 5 the game will disappear and ($(".score").show());
-  // function endGame() {
-  // while (roundCounter ===10) {
-  //     $(document).finished(function()
-  //        { $("#buttons").click(function(e)
-  //           {
-  //            var subject = $("#game");
-  //            if (e.target.id != subject.attr('id'))
-  //              {subject.fadeOut();}
-  //           });
-  //        });
-  //   }
-  //  } 
-
   // 
         //roundUp.innerHTML = "You played"+roundCounter + "scored"+playerCounter+"."
         
