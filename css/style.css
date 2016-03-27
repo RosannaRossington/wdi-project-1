@@ -40,7 +40,7 @@ img {
 }
 
 #LevelOne {
-  background-color: #7E7E7E;
+  background-color: #D1D6DA;
   color: white;
   width: 100px;
   height: 100px;
@@ -57,7 +57,7 @@ img {
 }
 
 #LevelTwo {
-  background-color: #292626;
+  background-color: #7E7E7E;
   color: white;
   width: 100px;
   height: 100px;
@@ -74,6 +74,23 @@ img {
 }
 
 #LevelThree {
+  background-color: #292626;
+  color: white;
+  width: 100px;
+  height: 100px;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  text-align: center;
+  border: solid black 2px;
+  border-color: black;
+  display: inline-block;
+  float:left;
+  margin: 15px;
+}
+
+#LevelFour {
   background-color: black;
   color: white;
   width: 100px;
@@ -91,19 +108,25 @@ img {
 }
 
 #LevelOne:hover {
-  background-color: #0670D0;
+  background-color: #FFC20D;
   color: white;
 }
 
 #LevelTwo:hover {
-  background-color: #E13D57;
+  background-color: #0670D0;
   color: white;
 }
 
 #LevelThree:hover {
+  background-color: #E13D57;
+  color: white;
+}
+
+#LevelFour:hover {
   background-color: #80D43A;
   color: white;
 }
+
 section  {
   padding: 100px;
 
@@ -127,7 +150,7 @@ section #game  {
   width: 200px;
   height: 75px;
   text-align: center;
-  
+
   display:block;
 }
 

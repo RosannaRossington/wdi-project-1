@@ -45,6 +45,12 @@ function selectLevel () {
           $("#levelSelector").hide(); 
         });  
       });
+    LevelFour.addEventListener("click", setLevel);
+      $(function(){
+        $("#LevelFour").click(function(){
+          $("#levelSelector").hide(); 
+        });  
+      });
 }
 
 function setLevel(){
@@ -70,7 +76,7 @@ function setLevel(){
       $(function(){
         $("#score").hide();
         $("#game").show();
-          setInterval(createRound,1000); 
+          setInterval(createRound,1000);
         });
 }    
 
@@ -79,28 +85,48 @@ function createRound (){
   var colorSelection = colors[Math.floor(Math.random()*colors.length)];
   var textSelection = colors[Math.floor(Math.random()*colors.length)];
 
+  var boxBackgroundColor = ["orange","Blanched Almond"];
+  var boxBackgroundColorSelection = boxBackgroundColor[Math.floor(Math.random()*colors.length)];
+
   var box = document.querySelector("li");
   
   var button1 = document.getElementById("Button1");
   var button2 = document.getElementById("Button2");
 //apply colorSelection as a font color to text in box - apply textSelection as the text in the box          
   
-    if (((this).id) === ("LevelFour"))     
-        box.innerHTML = textSelection;
-        box.style.color = colorSelection;
+  // console.log(this)
+  //$( this ).css( "background-color" );
 
-//apply both as the buttons but RANDOMLY - buttons can't be the same!
+      box.innerHTML = textSelection;
+      box.style.color = colorSelection;       
+
   for (var i=0;i<buttons.length;i++){
    buttons[i].addEventListener("click",keepScore);
    }
 
-    if (createButtons() === "button1")  {
-        button1.value = box.innerHTML;
-        button2.value = box.style.color;
-      } else {(createButtons() === "button2")
-        button2.value = box.innerHTML;
-        button1.value = box.style.color;
-      } 
+       if (createButtons() === "button1")  {
+           button1.value = box.innerHTML;
+           button2.value = box.style.color;
+        } if ((button1.value) === (button2.value)) {
+          createButtons()
+         }
+       else if (true) {} {(createButtons() === "button2")
+           button2.value = box.innerHTML;
+           button1.value = box.style.color;
+         } if ((button1.value) === (button2.value)) {
+          createButtons()
+         }
+       }
+
+//working button but sometimes the same
+    // if (createButtons() === "button1")  {
+    //     button1.value = box.innerHTML;
+    //     button2.value = box.style.color;
+    //   } else {(createButtons() === "button2")
+    //     button2.value = box.innerHTML;
+    //     button1.value = box.style.color;
+    //   } 
+    // }
 }
 
 function createButtons() {
