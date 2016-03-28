@@ -54,75 +54,77 @@ function selectLevel () {
 
 function setLevel(){
     if (((this).id) === ("LevelOne")) {
-     $(function(){
       $("#score").hide();
-       $("#game").show();
-         setInterval(createRound,2000); 
-       }); 
+      $("#game").show();
+      setInterval(createRound,2000); 
     } else if (((this).id) === ("LevelTwo")) {
-      $(function(){
-        $("#score").hide();
-        $("#game").show();
-          setInterval(createRound,1000); 
-        });
+      $("#score").hide();
+      $("#game").show();
+      setInterval(createRound,1000); 
     } else if (((this).id) === ("LevelThree")) {
-      $(function(){
-        $("#score").hide();
-        $("#game").show();
-          setInterval(createRound,100); 
-        });
+      $("#score").hide();
+      $("#game").show();
+      setInterval(createRound,100); 
     } else if (((this).id) === ("LevelFour")) {
-      $(function(){
-        $("#score").hide();
-        $("#game").show();
-          setInterval(createRound,1000);
-        });
-      } 
+      $("#score").hide();
+      $("#game").show();
+      console.log(this.id);
+      setInterval(createRound(this.id),1000);
+    }
 }         
 
-function createRound (){  
+function createRound (level){ 
   var colors = ["red","green","blue","pink","purple","yellow"]
   var colorSelection = colors[Math.floor(Math.random()*colors.length)];
   var textSelection = colors[Math.floor(Math.random()*colors.length)];
 
-  var boxBackgroundColor = ["orange","Blanched Almond"];
+  var boxBackgroundColor = ["orange","black","white"];
   var boxBackgroundColorSelection = boxBackgroundColor[Math.floor(Math.random()*boxBackgroundColor.length)];
 
   var box = document.querySelector("li");
-  // var $box = 
+  
   var button1 = document.getElementById("Button1");
   var button2 = document.getElementById("Button2");
 //apply colorSelection as a font color to text in box - apply textSelection as the text in the box          
-  
-  
-  // if ($(this) === ("LevelFour"))  {
-  // //          $(box).innerHTML = textSelection;
-  // //          $(box).style.color = colorSelection;
-  // //          $(box).style.css("background-color") = boxBackgroundColorSelection;  
-  // //       } else { box.innerHTML = textSelection;
-  // //                box.style.color = colorSelection; 
-  // }
+  if (level === ("LevelFour"))  {
+    $(box).html(textSelection);
+    $(box).css('color', colorSelection);
+    $(box).css('backgroundColor', boxBackgroundColorSelection); 
+  } else { $(box).html(textSelection);
+    $(box).css('color', colorSelection);
+  }      
 
-      box.innerHTML = textSelection;
-      box.style.color = colorSelection;       
+  // for (var i=0;i<buttons.length;i++){
+  //  buttons[i].addEventListener("click",keepScore);
+  //  }
 
-  for (var i=0;i<buttons.length;i++){
-   buttons[i].addEventListener("click",keepScore);
-   }
+//logging a round even if not clicked
+//if element clicked score logged
+   $('.button').each(function(index, element) {
+
+      $(element).one("click", keepScore)
+
+    });
+
 //working button but sometimes the same
        // if (createButtons() === "button1")  {
        //     button1.value = box.innerHTML;
        //     button2.value = box.style.color;
        //  } if ((button1.value) === (button2.value)) {
        //    createButtons()
-       //   }
+       //     }else {
+       //       button1.value = box.innerHTML;
+       //       button2.value = box.style.color;}
        // else if (createButtons() === "button2") {
        //     button2.value = box.innerHTML;
        //     button1.value = box.style.color;
        //   } if ((button1.value) === (button2.value)) {
        //    createButtons()
-       //   }
+       //     }else {
+       //       button1.value = box.innerHTML;
+       //       button2.value = box.style.color;}
        // }
+
 
 //working button but sometimes the same
     if (createButtons() === "button1")  {
@@ -152,23 +154,24 @@ function keepScore() {
   var playerCounter = parseInt(playerCounterElement.innerHTML);
   var box = document.querySelector("li");
 
-  //log a game that has not been clicked             
+  console.log (playerCounter,roundCounter) 
+             
   if (roundCounter < 10){ 
     if ((event.target).value === box.style.color){
         playerCounter++;
-        roundCounter++;
-    }
-    roundCounter++;    
+        roundCounter++;    
     } else if ((event.target).value !== box.style.color){
-      roundCounter++;
-      playerCounter;
+        roundCounter++;
   } else { endGame() 
+    console.log (playerCounter,roundCounter) 
     } 
-
+  }
     roundCounterElement.innerHTML = roundCounter;
     playerCounterElement.innerHTML = playerCounter;
   
+}  
   function endGame() {
+    console.log ("gameOver")
     $("#game").hide();
         clearInterval();
 
@@ -181,10 +184,9 @@ function keepScore() {
 
     gameOver.innerHTML = "You played "+ roundCounter + " scored "+ playerCounter +" ."
 
-console.log (gameOver)
-console.log (playerCounter,roundCounter)       
+  console.log (gameOver)
+  console.log (playerCounter,roundCounter)       
   }
-}  
 
 
         
