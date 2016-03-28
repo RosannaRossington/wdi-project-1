@@ -63,7 +63,6 @@ function setLevel(){
       $("#firstTitle").show();
       $("#game").show();
       setInterval(createRound,2500);
-      // setTimeout(function(){endGame()},25000)
     } else if (((this).id) === ("LevelTwo")) {
       $("#secondTitle").show();
       $("#game").show();
@@ -75,7 +74,7 @@ function setLevel(){
     } else if (((this).id) === ("LevelFour")) {
       $("#fourthTitle").show();
       $("#game").show();
-      console.log(this.id);     
+      $("#score").hide();   
       createRound(this.id);
     }
 }         
@@ -109,7 +108,6 @@ function createRound(level){
     if (level === "LevelFour")  {
       $(box).html(textSelection);
       $(box).css('color', colorSelection);
-      // console.log ($(".box"))
       $(".box").css('background-color', boxBackgroundColorSelection); 
       setInterval(function(){
         createRound(level);
@@ -133,7 +131,8 @@ function createRound(level){
     });
    roundCounterElement.innerHTML = roundCounter;
    playerCounterElement.innerHTML = playerCounter;
-   console.log (playerCounter,roundCounter);
+   
+
 //buttons to not be the same
 // function assignButtons () {
 //        if (createButtons() === "button1"){
@@ -141,7 +140,7 @@ function createRound(level){
 //            button2.value = box.style.color;
 //           } if ((button1.value) === (button2.value)){
 //           createButtons()
-//        } else if (createButtons() === "button2") {
+//          } else if (createButtons() === "button2") {
 //            button2.value = box.innerHTML;
 //            button1.value = box.style.color;
 //          } if ((button1.value) === (button2.value)) {
@@ -181,14 +180,27 @@ function endGame(rounds,user) {
   var play = document.getElementById("PlayAgain");
     $("#game").hide();
     $("#score").show();
+    $("#roundsPlayed").hide();
+    $("#playerScore").hide();
 
-  play.addEventListener("click", selectLevel);
+  PlayAgain.addEventListener("click", selectLevel);
+    $("#PlayAgain").click(function() {
+      ($(this).hide());
+      $("#score").hide();
+      $("#log").hide();
+      $("#firstTitle").hide();
+      $("#secondTitle").hide();
+      $("#thirdTitle").hide();
+      $("#fourthTitle").hide();
+      $("#levelSelector").show();
+      $("#roundsPlayed").hide();
+      $("#playerScore").hide();
+    });
+
   // $('#PlayAgain').one ()
   // $("#PlayAgain").click(selectLevel); 
 
-    
-  
-  gameOver.innerHTML = "You played "+ rounds + " scored "+ user +" ."     
+  gameOver.innerHTML = "You scored "+ user + " played "+ rounds +" rounds"+ "."     
 }
 
         
