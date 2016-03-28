@@ -60,15 +60,16 @@ function setLevel(){
     if (((this).id) === ("LevelOne")) { 
       $("#firstTitle").show();
       $("#game").show();
-      setInterval(createRound,2000); 
+      setInterval(createRound,2500);
+      setTimeout(function(){endGame()},25000)
     } else if (((this).id) === ("LevelTwo")) {
       $("#secondTitle").show();
       $("#game").show();
-      setInterval(createRound,1000); 
+      setInterval(createRound,1500); 
     } else if (((this).id) === ("LevelThree")) {
       $("#thirdTitle").show();
       $("#game").show();
-      setInterval(createRound,100); 
+      setInterval(createRound,1000); 
     } else if (((this).id) === ("LevelFour")) {
       $("#fourthTitle").show();
       $("#game").show();
@@ -77,52 +78,53 @@ function setLevel(){
     }
 }         
 
-function createRound (level){ 
-  var colors = ["red","green","blue","pink","purple","yellow"]
+function createRound(level){
+
+  var colors = ["red","green","blue","pink","purple","yellow","orange","black","turquoise","brown"]
   var colorSelection = colors[Math.floor(Math.random()*colors.length)];
   var textSelection = colors[Math.floor(Math.random()*colors.length)];
 
-  var boxBackgroundColor = ["orange","black","white"];
+  var boxBackgroundColor = ["snow","oldlace","lightsalmon","lime","palevioletred","darkgrey","firebrick","seagreen", "lightgreen","papayawhip"];
   var boxBackgroundColorSelection = boxBackgroundColor[Math.floor(Math.random()*boxBackgroundColor.length)];
-//console.log ( boxBackgroundColorSelection)
-  var box = document.querySelector("li");
 
-  var boxColor = document.getElementsByClassName("box");
-  
+  var box = document.querySelector("li");
   var button1 = document.getElementById("Button1");
   var button2 = document.getElementById("Button2");
 //apply colorSelection as a font color to text in box - apply textSelection as the text in the box    
 // console.log (boxColor)      
-    if (level === ("LevelFour"))  {
+    if (level === "LevelFour")  {
       $(box).html(textSelection);
       $(box).css('color', colorSelection);
-      $(boxColor).css('backgroundColor', boxBackgroundColorSelection); 
       // console.log ($(".box"))
-      setInterval(createRound,1000);
-    } else { $(box).html(textSelection);
+      $(".box").css('background-color', boxBackgroundColorSelection); 
+      setInterval(function(){
+        createRound(level);
+      },1750);
+    } else { 
+      $(box).html(textSelection);
       $(box).css('color', colorSelection);
     }      
 
-  for (var i=0;i<buttons.length;i++){
-   buttons[i].addEventListener("click",keepScore);
-   }
+  // for (var i=0;i<buttons.length;i++){
+  //  buttons[i].addEventListener("click",keepScore);
+  // }
 
-//logging a round even if not clicked
-//if element clicked score logged
-   // $('.button').each(function(index, element) {
+//logging a round even if not clicked but point also 
+//if element clicked score logged 
+   $('.button').each(function(index, element) {
  
-   //    $(element).one("click", keepScore)
+      $(element).one("click", keepScore)
  
-   //  });
+    });
 
-//working button but sometimes the same
+//buttons to not be the same
 // function assignButtons () {
 //        if (createButtons() === "button1"){
 //            button1.value = box.innerHTML;
 //            button2.value = box.style.color;
 //           } if ((button1.value) === (button2.value)){
 //           createButtons()
-//         } else if (createButtons() === "button2") {
+//        } else if (createButtons() === "button2") {
 //            button2.value = box.innerHTML;
 //            button1.value = box.style.color;
 //          } if ((button1.value) === (button2.value)) {
@@ -160,40 +162,53 @@ function keepScore() {
 
   console.log (playerCounter,roundCounter) 
              
-  if (roundCounter < 10){ 
+  if (roundCounter < 10){ console.log ("this is round" + roundCounter) 
     if ((event.target).value === box.style.color){
-        playerCounter++;
-        roundCounter++;    
-    } else if ((event.target).value !== box.style.color){
-        roundCounter++;
-  } else { endGame() 
-    console.log (playerCounter,roundCounter) 
+        playerCounter++;   
     } 
-  }
+    roundCounter++; 
+  } else { 
+    endGame(roundCounter,playerCounter) 
+    } 
     roundCounterElement.innerHTML = roundCounter;
     playerCounterElement.innerHTML = playerCounter;
-  
- 
-  function endGame() {
-    var gameOver = document.querySelector("p");
-    var playAgain = document.getElementById("PlayAgain");
-
-    PlayAgain.addEventListener("click", selectLevel);
-    
-    // $("#PlayAgain").click(selectLevel); 
-
-      $("#game").hide();
-        clearInterval();
-      $("#score").show();
-        $("#score").animate({left: '250px'});
-    
-    gameOver.innerHTML = "You played "+ roundCounter + " scored "+ playerCounter +" ."
-
-  console.log ("gameOver")
-  console.log (playerCounter,roundCounter)       
-  }
 }
 
+function endGame(rounds,user) {
+  var gameOver = document.querySelector("p");
+  var playAgain = document.getElementById("PlayAgain");
+
+  PlayAgain.addEventListener("click", selectLevel);
+  // $('#PlayAgain').one ()
+  // $("#PlayAgain").click(selectLevel); 
+
+    $("#game").hide();
+      clearInterval();
+    $("#score").show();
+      $("#score").animate({left: '250px'});
+  
+  gameOver.innerHTML = "You played "+ rounds + " scored "+ user +" ."     
+}
+
+
+
+
+//original
+// function endGame(rounds,user) {
+//   var gameOver = document.querySelector("p");
+//   var playAgain = document.getElementById("PlayAgain");
+
+//   PlayAgain.addEventListener("click", selectLevel);
+//   // $('#PlayAgain').one ()
+//   // $("#PlayAgain").click(selectLevel); 
+
+//     $("#game").hide();
+//       clearInterval();
+//     $("#score").show();
+//       $("#score").animate({left: '250px'});
+  
+//   gameOver.innerHTML = "You played "+ rounds + " scored "+ user +" ."     
+// }
 
         
         
