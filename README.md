@@ -2,7 +2,7 @@
 
 ## A game to keep your mind sharp.
 
-[PLAY](https://dry-beyond-17145.herokuapp.com/)
+[Play](https://dry-beyond-17145.herokuapp.com/)
 
 ###Introduction
 A brain test that uses colors and distractions to force you to think hard before you give the correct answer!
@@ -19,7 +19,7 @@ _"The game is much harder than it seems, in fact, it takes the average person 5 
   Level 2 - 2.8 seconds
 
   Level 3 - 2.6 seconds + disctraction
-  
+
   Level 4 - 2.5 seconds + background color change + distraction
 
 ###How to play
