@@ -26,8 +26,8 @@ h2 {
 }
 
 #welcome {
-  margin: 100px 100px 100px 100px;
-  padding: 100px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 img { 
@@ -49,90 +49,57 @@ img {
   display:block;
 }
 
-#LevelOne {
+#levelSelector {
+  text-align: center;
+}
+
+#levelSelector input {
+  color: white;
+  width: 100px;
+  height: 100px;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  text-align: center;
+  border: solid black 2px;
+  border-color: black;
+  display: inline-block;
+  margin: 15px;
+}
+
+#levelOne {
   background-color: #D1D6DA;
-  color: white;
-  width: 100px;
-  height: 100px;
-  font-family: 'Arial Narrow', Arial, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-variant: normal;
-  text-align: center;
-  border: solid black 2px;
-  border-color: black;
-  display: inline-block;
-  float:left;
-  margin: 15px;
 }
 
-#LevelTwo {
+#levelTwo {
   background-color: #7E7E7E;
-  color: white;
-  width: 100px;
-  height: 100px;
-  font-family: 'Arial Narrow', Arial, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-variant: normal;
-  text-align: center;
-  border: solid black 2px;
-  border-color: black;
-  display: inline-block;
-  float:left;
-  margin: 15px;
 }
 
-#LevelThree {
+#levelThree {
   background-color: #292626;
-  color: white;
-  width: 100px;
-  height: 100px;
-  font-family: 'Arial Narrow', Arial, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-variant: normal;
-  text-align: center;
-  border: solid black 2px;
-  border-color: black;
-  display: inline-block;
-  float:left;
-  margin: 15px;
 }
 
-#LevelFour {
+#levelFour {
   background-color: black;
-  color: white;
-  width: 100px;
-  height: 100px;
-  font-family: 'Arial Narrow', Arial, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-variant: normal;
-  text-align: center;
-  border: solid black 2px;
-  border-color: black;
-  display: inline-block;
-  float:left;
-  margin: 15px;
 }
 
-#LevelOne:hover {
+#levelOne:hover {
   background-color: #FFC20D;
   color: white;
 }
 
-#LevelTwo:hover {
+#levelTwo:hover {
   background-color: #0670D0;
   color: white;
 }
 
-#LevelThree:hover {
+#levelThree:hover {
   background-color: #E13D57;
   color: white;
 }
 
-#LevelFour:hover {
+#levelFour:hover {
   background-color: #80D43A;
   color: white;
 }
@@ -160,9 +127,16 @@ section  {
   padding: 30px;
   text-align: center;
   margin: 25px; 
-/* width: 305px;
-  height: 100px;*/
-  /*border: solid 3px black;*/
+}
+
+.word {
+  min-height: 60px;
+}
+
+.buttons {
+  width: 305px;
+  height: 300px;
+  margin: 0 auto;
 }
 
 .button {
@@ -176,17 +150,8 @@ section  {
   font-style: normal;
   font-variant: normal;
   text-align: center;
-  display: iblock;
-  float: left;
+  display: inline-block;
   margin: 15px;
-}
-
-.buttons {
-  width: 305px;
-  height: 300px;
-  /*display: inline-block;*/
-  margin: 0 auto;
-  
 }
 
 #score {
@@ -211,7 +176,7 @@ section  {
   display: inline-block;
 }
 
-#PlayAgain {
+#playAgain {
   background-color: black;
   color: white;
   width: 100px;
@@ -223,10 +188,5 @@ section  {
   text-align: center;
   border: solid black 2px;
   border-color: black;
-  /*display: inline-block;
-  float:left;*/
   margin: 15px;
 }
-
-
-

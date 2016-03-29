@@ -3,9 +3,38 @@ $(start);
 var roundCounter  = 0;
 var playerCounter = 0;
 var gameInterval;
+var colorAndWordColors = [
+  "red",
+  "green",
+  "blue",
+  "pink",
+  "purple",
+  "yellow",
+  "orange",
+  "black",
+  "turquoise",
+  "brown"
+];
+var backgroundColors = [
+  "snow",
+  "oldlace",
+  "lightsalmon",
+  "lime",
+  "palevioletred",
+  "darkgrey",
+  "firebrick",
+  "seagreen", 
+  "lightgreen",
+  "papayawhip"
+]
      
 function start(){
-  $.each([
+  hideEverything();
+  setupEvents();
+}
+
+function hideEverything(){
+  return $.each([
     "#game", 
     "#score", 
     "#firstTitle",
@@ -16,54 +45,87 @@ function start(){
   ], function(element, value){
     $(value).hide();
   });
-    
-  $("#start").on("click", runGame);
-  $("#LevelOne, #LevelTwo, #LevelThree, #LevelFour").on("click", setLevel);
-  $(".button").on("click", keepScore)
-} 
+}
+
+function setupEvents(){
+  var $play         = $("#playAgain");
+  var $start        = $("#start");
+  var $buttons      = $(".button");
+  var $levelButtons = $("#levelSelector input");
+
+  $start.on("click", runGame);
+  $levelButtons.on("click", setLevel);
+  $buttons.on("click", keepScore)
+  $play.on("click", playAgain);
+}
+
+function playAgain(){
+  var $levelSelector = $("#levelSelector");
+
+  $(this).hide();
+  hideEverything();
+  $levelSelector.show();
+}
 
 function runGame(){
+  var $welcome       = $("#welcome");
+  var $levelSelector = $("#levelSelector");
+
   $(this).hide();
-  $("#welcome").slideUp();
-  $("#levelSelector").show();
+  $welcome.fadeOut("500", function(){
+    $levelSelector.show();
+  });
 }
 
 function setLevel(){
-  $("#levelSelector").hide();
+  var $levelSelector = $("#levelSelector");
+  var $firstTitle    = $("#firstTitle");
+  var $secondTitle   = $("#secondTitle");
+  var $thirdTitle    = $("#thirdTitle");
+  var $fourthTitle   = $("#fourthTitle");
+  var $game          = $("#game");
+
+  $levelSelector.hide();
 
   switch (this.id) {
-    case "LevelOne":
-      $("#firstTitle").show();
+    case "levelOne":
+      $firstTitle.show();
       gameInterval = setInterval(function(){
         createRound(1);
       }, 3000);
       break;
-    case "LevelTwo":
-      $("#secondTitle").show();
+    case "levelTwo":
+      $secondTitle.show();
       gameInterval = setInterval(function(){
         createRound(2);
       }, 2500); 
       break;
-    case "LevelThree":
-      $("#thirdTitle").show();
+    case "levelThree":
+      $thirdTitle.show();
       gameInterval = setInterval(function(){
         createRound(3);
       }, 2000);
       break;
-    case "LevelFour":
-      $("#fourthTitle").show();
-      $("#score").hide(); 
+    case "levelFour":
+      $fourthTitle.show();
       gameInterval = setInterval(function(){
         createRound(4);
       }, 2000);
       break;
   }
 
-  $("#game").show();
+  $game.show();
 }         
 
 function createRound(level){
-  var colors = ["red","green","blue","pink","purple","yellow","orange","black","turquoise","brown"];
+  var $box                  = $(".word");
+  var $button1              = $("#button1");
+  var $button2              = $("#button2");
+  var $roundCounterElement  = $("#roundsPlayed");
+  var $playerCounterElement = $("#playerScore");
+  var $outerBox             = $(".box");
+
+  var colors = colorAndWordColors.slice(0);
   var colorSelection = colors[Math.floor(Math.random()*colors.length)];
   
   // Remove chosen color so that you can't have two of the same colors
@@ -71,25 +133,19 @@ function createRound(level){
   colors.splice(colorSelectionIndex, 1);
 
   var textSelection  = colors[Math.floor(Math.random()*colors.length)];
-  var boxBackgroundColor = ["snow","oldlace","lightsalmon","lime","palevioletred","darkgrey","firebrick","seagreen", "lightgreen","papayawhip"];
+  var boxBackgroundColor = backgroundColors.slice(0);
   var boxBackgroundColorSelection = boxBackgroundColor[Math.floor(Math.random()*boxBackgroundColor.length)];
-
-  var $box                  = $(".word");
-  var $button1              = $("#button1");
-  var $button2              = $("#button2");
-  var $roundCounterElement  = $("#roundsPlayed");
-  var $playerCounterElement = $("#playerScore");
              
   if (roundCounter < 10){ 
     roundCounter++;
   } else {
     clearInterval(gameInterval);
-    endGame(roundCounter, playerCounter) 
+    return endGame() 
   }
 
   // If level 4, increase the difficulty by also changing the background color
   if (level === 4) {
-    $(".box").css('background-color', boxBackgroundColorSelection); 
+    $outerBox.css('background-color', boxBackgroundColorSelection); 
   }
 
   // Update the box's html and it's background
@@ -115,38 +171,41 @@ function createButtons() {
   return (randomNumber < 0.5) ? "button1" : "button2"
 }
 
-function keepScore(box) {
+function keepScore() {
   var $box = $(".word");
+
   if ($(this).val() === $box[0].style.color){
     return playerCounter++;  
   }
 }
 
-function endGame(rounds,user) {
-  var gameOver = document.querySelector("p");
-  var play = document.getElementById("PlayAgain");
-    $("#game").hide();
-    $("#score").show();
-    $("#roundsPlayed").hide();
-    $("#playerScore").hide();
+function endGame() {
+  var $gameOver    = $("p");
+  var $score       = $("#score");
+  var $play        = $("#playAgain");
+  var $rounds      = $("#roundsPlayed");
+  var $playerscore = $("#playerScore");
+  var $box         = $(".word");
+  var $outerBox    = $(".box");
+  
+  hideEverything();
 
-    $("#PlayAgain").click(function() {
-      ($(this).hide());
-      $("#score").hide();
-      $("#log").hide();
-      $("#firstTitle").hide();
-      $("#secondTitle").hide();
-      $("#thirdTitle").hide();
-      $("#fourthTitle").hide();
-      $("#levelSelector").show();
-      $("#roundsPlayed").hide();
-      $("#playerScore").hide();
-    });
+  $score.show();
+  $play.show();
+  $rounds.hide();
+  $playerscore.hide();
 
-  // $('#PlayAgain').one ()
-  // $("#PlayAgain").click(selectLevel); 
+  $box.html("");
+  $box.css("color", "none"); 
+  $outerBox.css("background-color", "none"); 
 
-  gameOver.innerHTML = "You scored "+ user + " played "+ rounds +" rounds"+ "."     
+  $gameOver.html("You scored "+ playerCounter + " and played "+ roundCounter + " rounds.");
+  resetCounters();     
+}
+
+function resetCounters(){
+  roundCounter  = 0;
+  playerCounter = 0;
 }
 
         
