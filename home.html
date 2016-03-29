@@ -8,36 +8,36 @@
   <script type="text/javascript" src="./js/app.js"></script>
 </head>
 <body>
-    <section id="welcome">
-      <h1>WHAT COLOUR IS THE TEXT?</h1>
-      <div><input type="button" value="START" id="Start"></div>
+  <section id="welcome">
+    <h1>WHAT COLOUR IS THE TEXT?</h1>
+    <div><input type="button" value="START" id="start"></div>
+  </section>
+  <section id="levelSelector">
+    <div><input type="button" value="Level 1" id="LevelOne"></div>
+    <div><input type="button" value="Level 2" id="LevelTwo"></div>
+    <div><input type="button" value="Level 3" id="LevelThree"></div>
+    <div><input type="button" value="Level 4" id="LevelFour"></div>
+  </section>  
+  <section class="titles">
+    <h2 class="animated slideInLeft" id ="firstTitle">One</h2>
+    <h2 class="animated slideInLeft" id ="secondTitle">Two</h2>
+    <h2 class="animated slideInLeft" id ="thirdTitle">Three</h2>
+    <h2 class="animated slideInLeft" id ="fourthTitle">Four</h2>
+  </section>
+  <section id="game">
+    <section class="box" >
+      <li></li>    
     </section>
-        <section id="levelSelector">
-          <div><input type="button" value="Level 1" id="LevelOne"></div>
-          <div><input type="button" value="Level 2" id="LevelTwo"></div>
-          <div><input type="button" value="Level 3" id="LevelThree"></div>
-          <div><input type="button" value="Level 4" id="LevelFour"></div>
-        </section>  
-        <section class="titles">
-        <h2 class="animated slideInLeft" id ="firstTitle">One</h2>
-        <h2 class="animated slideInLeft" id ="secondTitle">Two</h2>
-        <h2 class="animated slideInLeft" id ="thirdTitle">Three</h2>
-        <h2 class="animated slideInLeft" id ="fourthTitle">Four</h2>
-        </section>
-    <section id="game">
-        <section class="box" >
-            <li></li>    
-        </section>
-        <section class="buttons" id="buttons">
-            <div class="animated slideInLeft"><input type="button"  id="Button1" class="button"></div>
-            <div class="animated slideInRight"><input type="button" id="Button2" class="button"></div>
-        </section> 
-    </section>     
-        <section id="score">
-        <p id="log"></p> 
-            <li id="playerScore">0 </li>
-            <li id="roundsPlayed">0 </li>
-            <div><input type="button" value="Play Again" id="PlayAgain"></div>
-        </section> 
+    <section class="buttons" id="buttons">
+      <div class="animated slideInLeft"><input type="button"  id="Button1" class="button"></div>
+      <div class="animated slideInRight"><input type="button" id="Button2" class="button"></div>
+    </section> 
+  </section>     
+  <section id="score">
+    <p id="log"></p> 
+    <li id="playerScore">0 </li>
+    <li id="roundsPlayed">0 </li>
+    <div><input type="button" value="Play Again" id="PlayAgain"></div>
+  </section> 
 </body>
 </html>

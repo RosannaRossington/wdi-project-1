@@ -1,29 +1,27 @@
 document.addEventListener("DOMContentLoaded",start); 
 
-  var buttons = document.getElementsByClassName("buttons");
-  // var start = document.getElementById("Start");
-  var game = document.getElementById("game");
-  var levelSelector = document.getElementById("levelSelector");
-  var roundCounter = 0;
+  // var buttons       = document.getElementsByClassName("buttons");
+  // var game          = document.getElementById("game");
+  // var levelSelector = document.getElementById("levelSelector");
+  var roundCounter  = 0;
   var playerCounter = 0;
      
 function start(){
-    $("#game").hide();
-    $("#score").hide();
-    $("#firstTitle").hide();
-    $("#secondTitle").hide();
-    $("#thirdTitle").hide();
-    $("#fourthTitle").hide();
-    $("#levelSelector").hide();
-    
-    Start.addEventListener("click", selectLevel);
-    $(function(){
-      $("#Start").click(function() {
-        ($(this).hide());
-        ($("#welcome").slideUp());
-        $("#levelSelector").show();
-      });
-    });
+  $("#game").hide();
+  $("#score").hide();
+  $("#firstTitle").hide();
+  $("#secondTitle").hide();
+  $("#thirdTitle").hide();
+  $("#fourthTitle").hide();
+  $("#levelSelector").hide();
+  
+  // Start.addEventListener("click", selectLevel);
+
+  $("#start").click(function() {
+    ($(this).hide());
+    ($("#welcome").slideUp());
+    $("#levelSelector").show();
+  });
 } 
 
 function selectLevel () {
@@ -111,15 +109,11 @@ function createRound(level){
       $(".box").css('background-color', boxBackgroundColorSelection); 
       setInterval(function(){
         createRound(level);
-      },1750);
+      },2000);
     } else { 
       $(box).html(textSelection);
       $(box).css('color', colorSelection);
     }      
-
-  // for (var i=0;i<buttons.length;i++){
-  //  buttons[i].addEventListener("click",keepScore);
-  // }
 
 //logging a round even if not clicked but point also 
 //if element clicked score logged 
