@@ -17,7 +17,7 @@ _"The game is much harder than it seems, in fact, it takes the average person 5 
   Level 1 - 3 seconds 
   Level 2 - 2.8 seconds
   Level 3 - 2.6 seconds + disctraction
-  Level 4 - 2.5 seconds + background color change and distraction
+  Level 4 - 2.5 seconds + background color change + distraction
 
 ###How to play
   It's simple....just click the button that displays the color of the word in the box.
