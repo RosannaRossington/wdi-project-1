@@ -55,9 +55,10 @@ function setupEvents(){
 
   $start.on("click", runGame);
   $levelButtons.on("click", setLevel);
-  $buttons.on("click", keepScore)
+  $buttons.on("click", keepScore);
   $play.on("click", playAgain);
 }
+
 
 function playAgain(){
   var $levelSelector = $("#levelSelector");
@@ -98,19 +99,19 @@ function setLevel(){
       $secondTitle.show();
       gameInterval = setInterval(function(){
         createRound(2);
-      }, 2500); 
+      }, 2800); 
       break;
     case "levelThree":
       $thirdTitle.show();
       gameInterval = setInterval(function(){
         createRound(3);
-      }, 2000);
+      }, 2600);
       break;
     case "levelFour":
       $fourthTitle.show();
       gameInterval = setInterval(function(){
         createRound(4);
-      }, 2000);
+      }, 2500);
       break;
   }
 
@@ -144,9 +145,15 @@ function createRound(level){
   }
 
   // If level 4, increase the difficulty by also changing the background color
+  if (level === 3) {
+
+    $box.addClass("animated infinite shake");
+  }
   if (level === 4) {
     $outerBox.css('background-color', boxBackgroundColorSelection); 
+    $outerBox.addClass("animated infinite tada");
   }
+
 
   // Update the box's html and it's background
   $box.html(textSelection);
