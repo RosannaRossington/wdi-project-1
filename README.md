@@ -2,7 +2,7 @@
 
 ## A game to keep your mind sharp.
 
-[Play](https://dry-beyond-17145.herokuapp.com/)
+[Play](https://what-colour.herokuapp.com/)
 
 ###Introduction
 A brain test that uses colors and distractions to force you to think hard before you give the correct answer!
@@ -28,9 +28,9 @@ _"The game is much harder than it seems, in fact, it takes the average person 5 
 ###Project Requirements
 
 ###Technologies Used
-  HTML/CSS and Javascript
-
-  -JQuery
-  -Animate.CSS
+  - HTML/CSS 
+  - Javascript
+  - JQuery
+  - Animate.CSS
 
 
