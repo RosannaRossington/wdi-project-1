@@ -1,7 +1,6 @@
 #What colour is the text?
 
-![levels](./README-screenshots/Project1a.png)
-![game](./README-screenshots/Project1b.png)
+
 ## A game to keep your mind sharp.
 
 [Play](https://what-colour.herokuapp.com/)
