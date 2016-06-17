@@ -1,7 +1,7 @@
 #What colour is the text?
 
-![alt tag](./README-screenshots/Project1a)
-![alt tag](./README-screenshots/Project1b)
+![levels](./README-screenshots/Project1a.png)
+![game](./README-screenshots/Project1b.png)
 ## A game to keep your mind sharp.
 
 [Play](https://what-colour.herokuapp.com/)
