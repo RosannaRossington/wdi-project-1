@@ -144,16 +144,14 @@ function createRound(level){
     return endGame() 
   }
 
-  // If level 4, increase the difficulty by also changing the background color
+  // If level 3 or 4, increase the difficulty by also changing the background color
   if (level === 3) {
-
     $box.addClass("animated infinite shake");
   }
   if (level === 4) {
     $outerBox.css('background-color', boxBackgroundColorSelection); 
     $outerBox.addClass("animated infinite tada");
   }
-
 
   // Update the box's html and it's background
   $box.html(textSelection);
