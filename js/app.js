@@ -124,7 +124,7 @@ function createRound(level){
   var $button2              = $("#button2");
   var $roundCounterElement  = $("#roundsPlayed");
   var $playerCounterElement = $("#playerScore");
-  var $outerBox             = $(".box");
+  var $outerBox             = $("#game");
 
   var colors = colorAndWordColors.slice(0);
   var colorSelection = colors[Math.floor(Math.random()*colors.length)];
@@ -191,7 +191,7 @@ function endGame() {
   var $rounds      = $("#roundsPlayed");
   var $playerscore = $("#playerScore");
   var $box         = $(".word");
-  var $outerBox    = $(".box");
+  var $outerBox    = $("#game");
   
   hideEverything();
 
